@@ -5,16 +5,17 @@ import com.pranavbros.util.Quicksort;
 public class ThreadCostCalculator implements ThreadCostCalculatorService{
 	
 	public int getThreadCost(int[] inputArray) {
-		if(inputArray.length<2) {
+		int arrayLength = inputArray.length;
+		if(arrayLength<2) {
 			return inputArray[0];
 		}else { //(inputArray.length>1) 
 			Quicksort qs = new Quicksort();
-			int[] sortedArray = qs.sort(inputArray);
-			int sum = sortedArray[0] + sortedArray[1];
+			qs.sort(inputArray,0, arrayLength-1);
+			int sum = inputArray[0] + inputArray[1];
 			int stepsSum = 0;
-			for(int i=2; i<sortedArray.length; i++) {
+			for(int i=2; i<inputArray.length; i++) {
 				stepsSum = stepsSum+sum;
-				sum = sum + sortedArray[i];
+				sum = sum + inputArray[i];
 			}
 			return (sum+stepsSum);
 		} 

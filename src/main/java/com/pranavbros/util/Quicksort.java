@@ -16,16 +16,14 @@ public class Quicksort {
 		for (int j = begin; j < end; j++) {
 			if (numbers[j] <= pivot) {
 				i++;
-				int swapTemp = numbers[i];
-				numbers[i] = numbers[j];
-				numbers[j] = swapTemp;
+				swapNumbers(numbers, i, j);
 			}
 		}
-		exchange(numbers, i + 1,  end);
+		swapNumbers(numbers, i + 1,  end);
 		return i + 1;
 	}
 	
-	private void exchange(int[] numbers, int i, int j) {
+	private void swapNumbers(int[] numbers, int i, int j) {
         int temp = numbers[i];
         numbers[i] = numbers[j];
         numbers[j] = temp;

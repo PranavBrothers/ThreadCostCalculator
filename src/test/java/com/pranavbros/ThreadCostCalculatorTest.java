@@ -25,4 +25,10 @@ public class ThreadCostCalculatorTest {
 		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
 		assertEquals(54, threadCostCalculator.getThreadCost(new int[] {20,4,8,2}));
 	}
+	
+	@Test
+	public void multipleElementBigArrayCost() {
+		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
+		assertEquals(321, threadCostCalculator.getThreadCost(new int[] {10, 16, 8, 12, 15, 6, 3, 9, 5}));
+	}
 }

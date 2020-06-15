@@ -12,7 +12,7 @@ public class ThreadCostCalculator implements ThreadCostCalculatorService{
 	public int getThreadCost(int[] inputArray) {
 		try {
 			if(inputArray.length>=2) {
-				new Quicksort().sort(inputArray);
+				Quicksort.sort(inputArray);
 				return getTotalCost(inputArray);
 			}
 		} catch (Exception e) {

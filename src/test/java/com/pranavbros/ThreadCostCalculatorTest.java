@@ -39,7 +39,7 @@ public class ThreadCostCalculatorTest {
 	}
 
 	@Test
-	public void multipleElemenHhugeArrayCost() {
+	public void multipleElemenHugeArrayCost() {
 		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
 		assertEquals(1148179404,
 				threadCostCalculator.getThreadCost(new int[] { 10, 16, 8, 12, 15, 6, 3, 9, 5, 78, 55, 68, 44, 4454, 178,

@@ -3,11 +3,17 @@ package com.pranavbros;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+import com.anarsoft.vmlens.concurrent.junit.ConcurrentTestRunner;
 import com.pranavbros.service.impl.ThreadCostCalculator;
 
+//https://github.com/ThomasKrieger/concurrent-junit
+//Each method is run in 4 parallel threads.
+@RunWith(ConcurrentTestRunner.class)
 public class ThreadCostCalculatorTest {
 
+	
 	@Test
 	public void nullElementArrayCost() {
 		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
@@ -25,13 +31,15 @@ public class ThreadCostCalculatorTest {
 		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
 		assertEquals(24, threadCostCalculator.getThreadCost(new int[] { 20, 4 }));
 	}
-
+	 
+	
 	@Test
 	public void multipleElementArrayCost() {
 		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
 		assertEquals(54, threadCostCalculator.getThreadCost(new int[] { 20, 4, 8, 2 }));
 	}
 
+	
 	@Test
 	public void multipleElementBigArrayCost() {
 		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
@@ -48,4 +56,5 @@ public class ThreadCostCalculatorTest {
 						78454, 115, 1, 5, 154, 5, 1545, 67, 154, 15, 1545, 1545, 154, 1545, 154545, 1545, 7878, 44, 5,
 						4, 3, 2, 4545, 54457511, 154 }));
 	}
+	
 }

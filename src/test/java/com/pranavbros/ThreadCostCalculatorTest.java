@@ -9,6 +9,12 @@ import com.pranavbros.service.impl.ThreadCostCalculator;
 public class ThreadCostCalculatorTest {
 
 	@Test
+	public void nullElementArrayCost() {
+		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
+		assertEquals(0, threadCostCalculator.getThreadCost(null));
+	}
+	
+	@Test
 	public void singleElementArrayCost() {
 		ThreadCostCalculator threadCostCalculator = new ThreadCostCalculator();
 		assertEquals(20, threadCostCalculator.getThreadCost(new int[] { 20 }));

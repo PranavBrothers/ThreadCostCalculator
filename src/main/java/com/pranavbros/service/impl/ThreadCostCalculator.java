@@ -1,6 +1,4 @@
 package com.pranavbros.service.impl;
-import java.util.Arrays;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,27 +15,24 @@ public class ThreadCostCalculator implements ThreadCostCalculatorService{
 			if(arrayLength<2) {
 				return inputArray[0];
 			}else {
-				long startTime = System.currentTimeMillis();
-				logger.info("InputArray -->{}", Arrays.toString(inputArray));
 				Quicksort qs = new Quicksort();
-				qs.sort(inputArray,0, arrayLength-1);
-				long stopTime = System.currentTimeMillis();
-				long elapsedTime = stopTime - startTime;
-				logger.info("Quicksort Time Taken -->{}", elapsedTime);
-				logger.info("SortedArray -->{}" , Arrays.toString(inputArray));
-				
-				int sum = inputArray[0] + inputArray[1];
-				int stepsSum = 0;
-				for(int i=2; i<inputArray.length; i++) {
-					stepsSum = stepsSum+sum;
-					sum = sum + inputArray[i];
-				}
-				return (sum+stepsSum);
+				qs.sort(inputArray);
+				return getTotalCost(inputArray);
 			}
 		} catch (Exception e) {
 			logger.error("Unexpected Error-->{}" , e.getMessage());
 		} 
 		return 0;
+	}
+	
+	private int getTotalCost(int[] sortedInputArray) {
+		int sum = sortedInputArray[0] + sortedInputArray[1];
+		int stepsSum = 0;
+		for(int i=2; i<sortedInputArray.length; i++) {
+			stepsSum = stepsSum+sum;
+			sum = sum + sortedInputArray[i];
+		}
+		return (sum+stepsSum);
 	}
 	
 }

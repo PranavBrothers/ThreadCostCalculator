@@ -9,25 +9,22 @@ public class Quicksort {
 	
 	private static final Logger logger = LoggerFactory.getLogger(Quicksort.class);
 
-	public void sort(int arr[]) {
+	public void sort(int[] numbers) {
 		logger.info("******************************************************************");
-		logger.info("InputArray -->{}", Arrays.toString(arr));
-		int arrayLength = arr.length;
+		logger.info("InputArray -->{}", Arrays.toString(numbers));
 		long startTime = System.currentTimeMillis();
-		sort(arr,0, arrayLength-1);
-		long stopTime = System.currentTimeMillis();
-		long elapsedTime = stopTime - startTime;
-		logger.info("Quicksort Time Taken -->{}", elapsedTime);
-		logger.info("SortedArray -->{}" , Arrays.toString(arr));
+		sort(numbers,0, numbers.length-1);
+		logger.info("Quicksort Time Taken -->{}",  System.currentTimeMillis() - startTime);
+		logger.info("SortedArray -->{}" , Arrays.toString(numbers));
 		logger.info("******************************************************************");
 	}
 			
-	private void sort(int arr[], int begin, int end) {
+	private void sort(int numbers[], int begin, int end) {
 		if (begin < end) {
-			logger.info("Invoked Sort Method ------>{}", Arrays.toString(arr));
-			int partitionIndex = partition(arr, begin, end);
-			sort(arr, begin, partitionIndex - 1);
-			sort(arr, partitionIndex + 1, end);
+			logger.info("Invoked Sort Method ------>{}", Arrays.toString(numbers));
+			int partitionIndex = partition(numbers, begin, end);
+			sort(numbers, begin, partitionIndex - 1);
+			sort(numbers, partitionIndex + 1, end);
 		}
 	}
 

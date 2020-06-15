@@ -17,8 +17,9 @@ public class ThreadCostCalculator implements ThreadCostCalculatorService{
 			}
 		} catch (Exception e) {
 			logger.error("Unexpected Error-->{}" , e.getMessage());
+			return 0;
 		} 
-		return 0;
+		return inputArray[0];
 	}
 	
 	private int getTotalCost(int[] sortedInputArray) {
